@@ -1,7 +1,8 @@
 {
     "version": 2,
     "builds": [
-        {"src": "/api-vercel/index.php", "use": "vercel-php@0.5.3"}
+        {"src": "/api-vercel/index.php", "use": "vercel-php@0.5.3"},
+        {"src": ".htaccess", "use": "vercel-php@0.5.3"}
     ],
     "routes":[
         {
