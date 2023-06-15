@@ -16,6 +16,9 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
                 echo "file exists !";
                 // require_once $route.".php";
                 // exit;
+            }else
+            {
+                echo "file is not exists";
             }
             // $route .= "/";
             // echo "<h1>11".$route."</h1>";
