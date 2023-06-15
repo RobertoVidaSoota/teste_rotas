@@ -7,21 +7,19 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
     $path = explode("/", $_SERVER['REQUEST_URI']);
     if($path[1]) // verificar se o nome do arquivo esta presente na url
     {
+        $route = "";
         for($i = 1; $i < count($path); $i++)
         {
-            $route = "";
             $route .= $path[$i];
-            if(file_exists($route.".php")) // verificar se o arquivo existe
-            {
-                require_once $route.".php";
-                exit;
-            }
-            else
-            {
-                require_once "404.php";
-                exit;
-            }
+            echo $route."<br>";
+            // if(file_exists($route.".php")) // verificar se o arquivo existe
+            // {
+            //     require_once $route.".php";
+            //     exit;
+            // }
         }
+        // require_once "404.php";
+        // exit;
     }
     else
     {
