@@ -8,10 +8,5 @@
             "src": "/(.*)",
             "dest": "/api-vercel/index.php"
         }
-    ],
-    "rewrites":[
-        {
-            "source": "/:url", "destination": "/"
-        }
     ]
 }

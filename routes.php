@@ -1,14 +1,33 @@
 <?php
 
-
-if(isset($_GET["url"]))
+// versão deploy vercel
+if(isset($_SERVER['REQUEST_URI']))
 {
-    require_once $_GET["url"].".php";
+    $path = explode("/", $_SERVER['REQUEST_URI']);
+    require_once $path[1].".php";
+}
+elseif($path[1] == "")
+{
+    require_once "inicio.php";
+    exit;
 }
 else
 {
     require_once "inicio.php";
     exit;
 }
+
+
+
+//versão localhost
+// if(isset($_GET["url"]))
+// {
+//     require_once $_GET["url"].".php";
+// }
+// else
+// {
+//     require_once "inicio.php";
+//     exit;
+// }
 
 
