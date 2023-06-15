@@ -11,7 +11,7 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
         for($i = 1; $i < count($path); $i++)
         {
             $route .= $path[$i];
-            if(file_exists("login.php")) // verificar se o arquivo existe
+            if(file_exists("var/task/user/login.php")) // verificar se o arquivo existe
             {
                 echo "file exists !";
                 // require_once $route.".php";
