@@ -11,15 +11,15 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
         for($i = 1; $i < count($path); $i++)
         {
             $route .= $path[$i];
-            echo $route."<br>";
-            // if(file_exists($route.".php")) // verificar se o arquivo existe
-            // {
-            //     require_once $route.".php";
-            //     exit;
-            // }
+            if(file_exists($route.".php")) // verificar se o arquivo existe
+            {
+                require_once $route.".php";
+                exit;
+            }
+            $route .= "/";
         }
-        // require_once "404.php";
-        // exit;
+        require_once "404.php";
+        exit;
     }
     else
     {
