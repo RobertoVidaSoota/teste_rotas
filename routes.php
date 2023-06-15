@@ -17,9 +17,10 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
                 exit;
             }
             $route .= "/";
+            echo "<h1>".$route."</h1>";
         }
-        require_once "404.php";
-        exit;
+        // require_once "404.php";
+        // exit;
     }
     else
     {
