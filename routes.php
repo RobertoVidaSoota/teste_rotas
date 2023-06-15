@@ -4,9 +4,16 @@
 if(isset($_SERVER['REQUEST_URI']))
 {
     $path = explode("/", $_SERVER['REQUEST_URI']);
-    require_once $path[1].".php";
+    if($path[1])
+    {
+        require_once $path[1].".php";
+    }
+    else
+    {
+        require_once "inicio.php";
+    }
 }
-elseif($path[1] == "")
+elseif(!$path[1])
 {
     require_once "inicio.php";
     exit;
