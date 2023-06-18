@@ -22,8 +22,8 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
         exit;
     }
     // url estando vazia sera carregada o inicio.php
-    echo "<h2> url: $urlAntiga</h2>";
-    if($urlAntiga === "")
+    echo "<h2> url: $novaUrl</h2>";
+    if($novaUrl === "")
     {
         require_once "inicio.php";
         exit;
