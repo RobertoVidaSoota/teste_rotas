@@ -5,10 +5,12 @@
 if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arquivo
 {    
     // verificar se o arquivo existe
-    if(@is_file("/var/task/user". $_SERVER['REQUEST_URI'].".php")) 
+    if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
-        require_once  $_SERVER['REQUEST_URI'].".php";
-        exit;
+        $slash = $_SERVER['REQUEST_URI'][0];
+        echo $slash;
+        // require_once  $_SERVER['REQUEST_URI'].".php";
+        // exit;
     }
     require_once "404.php";
     exit;
