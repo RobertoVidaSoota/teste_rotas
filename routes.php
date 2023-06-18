@@ -8,7 +8,7 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
     if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
         $urlAntiga = $_SERVER['REQUEST_URI'];
-        $tamanhoUrl = strlen($urlLimpa);
+        $tamanhoUrl = strlen($urlAntiga);
         $novaUrl = "";
         for($i = 0; $i < $tamanhoUrl; $i++)
         {
