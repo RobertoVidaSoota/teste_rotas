@@ -12,7 +12,7 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
         $novaUrl = "";
         for($i = 0; $i < $tamanhoUrl; $i++)
         {
-            if($i < 0)
+            if($i > 0)
             {
                 $novaUrl .= $urlAntiga[$i];
             }
