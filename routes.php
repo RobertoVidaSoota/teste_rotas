@@ -7,13 +7,13 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
     // verificar se o arquivo existe
     if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
-        $urlLimpa = $_SERVER['REQUEST_URI'];
+        $urlAntiga = $_SERVER['REQUEST_URI'];
         $tamanhoUrl = strlen($urlLimpa);
         for($i = 0; $i < $tamanhoUrl; $i++)
         {
             if($i < 0)
             {
-                $novaUrl .= $tamanhoUrl[$i];
+                $novaUrl .= $urlAntiga[$i];
             }
         }
         require_once  $novaUrl.".php";
