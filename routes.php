@@ -4,19 +4,20 @@
 
 if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arquivo
 {
-    $urlAntiga = $_SERVER['REQUEST_URI'];    
+    // limpando url para o tratamento
+    $urlAntiga = $_SERVER['REQUEST_URI'];
+    $tamanhoUrl = strlen($urlAntiga);
+    $novaUrl = "";
+    for($i = 0; $i < $tamanhoUrl; $i++)
+    {
+        if($i > 0)
+        {
+            $novaUrl .= $urlAntiga[$i];
+        }
+    }  
     // verificar se o arquivo existe
     if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
-        $tamanhoUrl = strlen($urlAntiga);
-        $novaUrl = "";
-        for($i = 0; $i < $tamanhoUrl; $i++)
-        {
-            if($i > 0)
-            {
-                $novaUrl .= $urlAntiga[$i];
-            }
-        }
         require_once  $novaUrl.".php";
         exit;
     }
