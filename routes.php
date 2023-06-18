@@ -3,11 +3,11 @@
 // VERSÃO DEPLOY VERCEL
 
 if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arquivo
-{    
+{
+    $urlAntiga = $_SERVER['REQUEST_URI'];    
     // verificar se o arquivo existe
     if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
-        $urlAntiga = $_SERVER['REQUEST_URI'];
         $tamanhoUrl = strlen($urlAntiga);
         $novaUrl = "";
         for($i = 0; $i < $tamanhoUrl; $i++)
@@ -17,14 +17,14 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
                 $novaUrl .= $urlAntiga[$i];
             }
         }
-        // url estando vazia sera carregada o inicio.php
-        echo "<h2>$novaUrl</h2>";
-        if($novaUrl === "")
-        {
-            require_once "inicio.php";
-            exit;
-        }
         require_once  $novaUrl.".php";
+        exit;
+    }
+    // url estando vazia sera carregada o inicio.php
+    echo "<h2> url: $novaUrl</h2>";
+    if($novaUrl === "")
+    {
+        require_once "inicio.php";
         exit;
     }
     require_once "404.php";
