@@ -8,8 +8,15 @@ if(isset($_SERVER['REQUEST_URI'])) // verificar inicialização caminho do arqui
     if(@is_file("/var/task/user".$_SERVER['REQUEST_URI'].".php")) 
     {
         $urlLimpa = $_SERVER['REQUEST_URI'];
-        $urlLimpa[0] = " ";
-        require_once  $urlLimpa.".php";
+        $tamanhoUrl = strlen($urlLimpa);
+        for($i = 0; $i < $tamanhoUrl; $i++)
+        {
+            if($i < 0)
+            {
+                $novaUrl .= $tamanhoUrl[$i];
+            }
+        }
+        require_once  $novaUrl.".php";
         exit;
     }
     require_once "404.php";
